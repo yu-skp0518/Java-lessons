@@ -70,5 +70,134 @@ java [ファイル名]で実行
        rld again       !
    といったように出力される
 
+  ===========================
+    public class MyApp {
+      public static void main(String[] args) {
+    
+        String msg = "hello world again!";
+        System.out.println(msg);
+        
+        String message = "hello wo\nrld again\t!";
+        System.out.println(message);
+      }
+    }
+  ===========================
+
 -------------------------------------------------
 
+ - 演算
+ - 四則演算
+ -> + - * / %
+ => ++(1を足す) --(1を引く)
+ 
+ ===========================
+    public class MyApp {
+      public static void main(String[] args) {
+    
+        int i; //intはあくまでも整数型なので10を3で割っても小数点以下は切り捨てられて3が返ってくる
+        i = 10 / 3;
+        System.out.println(i); //=3
+    
+        i = 10 % 3; //%はあまりを返す
+        System.out.println(i); //=1
+    
+        int x = 5;
+        x++; //++は1を足すなので今回は6
+        System.out.println(x); //=6
+    
+        x--; //++は1を引くなので上で足された1を再度引いて今回は5が返ってくる
+        System.out.println(x); //=5
+      }
+    }    
+  ===========================
+
+ - 代入を伴う演算子
+ 
+  ===========================
+    public class MyApp {
+      public static void main(String[] args) {
+        
+        int x = 5;
+        // x = x + 12; //よくある処理だが、下記のようなより短い書き方が用意されている
+        
+        x += 12; //もちろん+以外にも*など他の記号にも使用できる
+        System.out.println(x);
+      }
+    }    
+  ===========================
+
+ - 文字列の連結
+
+  ===========================
+      public class MyApp {
+        public static void main(String[] args) {
+          
+          String s;
+          s = "hello" + "world";
+          System.out.println(x);
+        }
+      }
+  =========================== 
+
+-------------------------------------------------
+
+ - データ型の変換
+    以下のような他のデータ型への変換を「キャストする」という
+
+  ===========================
+  public class MyApp {
+    public static void main(String[] args) {
+      
+      double d = 52343.231;
+      // int i = d; //型の違うデータを代入したい場合は以下のように明示的に変換したい型を記載する必要がある
+      int i = (int)d;
+      
+      System.out.println(i); //52343
+    }
+  }
+  =========================== 
+  
+ - よくある間違い
+  
+  ===========================
+  public class MyApp {
+    public static void main(String[] args) {
+      
+      int i = 10;
+      // double d = i / 4; //i / 4が計算された時点ではiは整数型なので整数の10を4で割っても
+                        //小数点以下が切り捨てられた2が返り、dに代入されるのは2.0であるため
+      //System.out.println(d); //この場合は2.5ではなく2.0が返される
+                        
+      double d = (double)i /4; //このように2.5を返してほしい場合はiの前に
+                               //明示的に変換する型である(double)を記述する必用がある
+      System.out.println(d); //2.5
+    }
+  }
+  ===========================   
+  
+-------------------------------------------------
+  
+ - ifによる条件分岐
+ 
+ if / else if/ elseによって条件を分岐させて処理させることができる。
+ その際に下記のような比較演算子、論理演算子を用いる
+ 
+ 比較演算子 =>  > >= < <= == != //より大きい、以上、未満、以下、等しい、等しくない
+ 論理演算子 =>  && || ! //and , or , not
+ 
+   ===========================
+   public class MyApp {
+    public static void main(String[] args) {
+      
+      score = 90;
+      if (score > 85) {
+        System.out.println("great!");
+      } else if (score > 70) {
+        System.out.println("good!");
+      } else {
+        System.out.println("so so...");
+      }
+      
+    }
+   }
+   ===========================

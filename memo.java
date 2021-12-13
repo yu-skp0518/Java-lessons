@@ -446,36 +446,36 @@ java [ファイル名]で実行
     }
   }
   ===========================
-  
+
 -------------------------------------------------
 
  - データ型とメモリの関係
- 
+
  データ型は8種類の基本データ型とそれ以外の参照型に分かれる
- 
+
  |基本データ型(プリミティブ型)|
  ・byte, short, int, long,
  ・float, double,
  ・boolean,
  ・char
- 
+
  |参照型|
  ・String(代表的なもの)
  ・Array (int[])
  ・Class
  …など
- 
+
  プログラムはコンピューターのメモリ上に展開される。
  メモリとは番地のついた連続した領域になっており、
  そこにデータを置くことでさまざまな計算ができるようになっている。
 
-【基本データ型】 
+【基本データ型】
   - 例) int i;
  上記を例に変数は宣言するとメモリ上にint構造を格納する領域を確保し、
  そこに対してiというラベルが貼られる。
  領域の大きさはデータ型によって決まっていて、intならこれくらい
  longならこれくらいと決まっている。
- 
+
  そのあとに i = 10;とするとiのラベルがついた領域に10という値が格納される
 
 【参照型】
@@ -496,34 +496,34 @@ java [ファイル名]で実行
   ===========================
   public class MyApp {
     public static void main(String[] args) {
-      
+
       int x = 10;
       int y = x;
       y = 5;
-      
+
       System.out.println(x); //10
       System.out.println(y); //5
-      
+
     }
   }
   ===========================
-  
+
 【参照型】
   ===========================
   public class MyApp {
     public static void main(String[] args) {
-      
+
       int[] a = {3, 5, 7};
       int[] b = a; //この時点でbにはaのメモリ上の番地が格納される
       b[1] = 8; //そのためbの値を変えるということはaの値を変えるということでもある
-      
+
       System.out.println(a[1]); //8 だからa[1]とb[1]は同じ値になる
       System.out.println(b[1]); //8
-      
+
     }
   }
   ===========================
-  
+
 -------------------------------------------------
 
  - メソッド
@@ -534,13 +534,13 @@ java [ファイル名]で実行
     public static void sayHi() { //メソッド名の後ろには()が必用
       System.out.println("Hi!");
     }
-    
+
     public static void main(String[] args) {
       sayHi(); // Hi!
     }
   }
   ===========================
-  
+
  - メソッドにはオプションを渡すこともできる
  =>sayHi() //括弧内に記述する
 
@@ -549,14 +549,14 @@ java [ファイル名]で実行
     public static void sayHi(String name) { //変数のオプションをStringで渡しているので
       System.out.println("Hi! " + name);    //受け取る側もStringを指定 + 格納する変数名(今回はname)
     }
-    
+
     public static void main(String[] args) {
       sayHi("Tom");
       sayHi("Bob");
     }
   }
   ===========================
-  
+
  - メソッドに値を返してほしい場合
 
   ===========================
@@ -565,10 +565,56 @@ java [ファイル名]で実行
                                               //ちなみにvoidは何も返さないという意味
       return "Hi! " + name; //返してほしい内容を記述
     }
-    
+
     public static void main(String[] args) {
       String msg = sayHi("Steve");
       System.out.println(msg); //Hi! Steve
     }
+  }
+  ===========================
+
+-------------------------------------------------
+
+ - メソッド内での変数の有効範囲
+
+  ===========================
+  public class MyApp {
+
+    public static void sayHi(String name) {
+      int x = 10; //この行のxや下記のnameという変数はこのsayHiメソッド内でのみ使用できる
+      System.out.println("Hi! " + name);
+    }
+
+    public static void main(String[] args) {
+      sayHi("Steve"); //()内の値を引数と呼ぶ
+      System.out.println(x); //エラー(変数が扱える範囲外であるため)
+      System.out.println(name); //エラー(変数が扱える範囲外であるため)
+    }
+
+  }
+  ===========================
+
+ - メソッドのオーバーロード
+  メソッドの引数は引数の方や個数が違えば同じ名前で何個でも作れる
+  (今回はsayHiメソッドを複製して試す)
+
+  ===========================
+  public class MyApp {
+
+    //引数あり
+    public static void sayHi(String name) {
+      System.out.println("Hi! " + name);
+    }
+
+    //引数なし
+    public static void sayHi() { //上記と違い引数がない場合
+      System.out.println("Hi! Nobody!"); //その場合表示する内容
+    }
+
+    public static void main(String[] args) {
+      sayHi("Steve"); //Hi! Steve
+      sayHi(); //Hi! Nobody!
+    }
+
   }
   ===========================

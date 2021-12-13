@@ -446,3 +446,129 @@ java [ファイル名]で実行
     }
   }
   ===========================
+  
+-------------------------------------------------
+
+ - データ型とメモリの関係
+ 
+ データ型は8種類の基本データ型とそれ以外の参照型に分かれる
+ 
+ |基本データ型(プリミティブ型)|
+ ・byte, short, int, long,
+ ・float, double,
+ ・boolean,
+ ・char
+ 
+ |参照型|
+ ・String(代表的なもの)
+ ・Array (int[])
+ ・Class
+ …など
+ 
+ プログラムはコンピューターのメモリ上に展開される。
+ メモリとは番地のついた連続した領域になっており、
+ そこにデータを置くことでさまざまな計算ができるようになっている。
+
+【基本データ型】 
+  - 例) int i;
+ 上記を例に変数は宣言するとメモリ上にint構造を格納する領域を確保し、
+ そこに対してiというラベルが貼られる。
+ 領域の大きさはデータ型によって決まっていて、intならこれくらい
+ longならこれくらいと決まっている。
+ 
+ そのあとに i = 10;とするとiのラベルがついた領域に10という値が格納される
+
+【参照型】
+ - 例) int[] a;
+       a = new int[] {3, 5, 7};
+上記のint[] a;の時点では配列にいくつ要素が入るかわからないため
+一旦番地のみ入れられるように領域が確保され、まずaと名前だけつけられる
+
+そして離れた場所に実際の値は格納され、aにはその値の先頭の番地が入る。
+つまり、基本データ型はデータそのものがメモリに入るのに対し、
+参照型にはデータが入っている箇所の番地がメモリに入る
+
+-------------------------------------------------
+
+ - 基本データ型と参照型を理解する
+
+【基本データ型】
+  ===========================
+  public class MyApp {
+    public static void main(String[] args) {
+      
+      int x = 10;
+      int y = x;
+      y = 5;
+      
+      System.out.println(x); //10
+      System.out.println(y); //5
+      
+    }
+  }
+  ===========================
+  
+【参照型】
+  ===========================
+  public class MyApp {
+    public static void main(String[] args) {
+      
+      int[] a = {3, 5, 7};
+      int[] b = a; //この時点でbにはaのメモリ上の番地が格納される
+      b[1] = 8; //そのためbの値を変えるということはaの値を変えるということでもある
+      
+      System.out.println(a[1]); //8 だからa[1]とb[1]は同じ値になる
+      System.out.println(b[1]); //8
+      
+    }
+  }
+  ===========================
+  
+-------------------------------------------------
+
+ - メソッド
+ 実は定型文となっているpublic static void mainはmainメソッドのこと
+
+  ===========================
+  public class MyApp {
+    public static void sayHi() { //メソッド名の後ろには()が必用
+      System.out.println("Hi!");
+    }
+    
+    public static void main(String[] args) {
+      sayHi(); // Hi!
+    }
+  }
+  ===========================
+  
+ - メソッドにはオプションを渡すこともできる
+ =>sayHi() //括弧内に記述する
+
+  ===========================
+  public class MyApp {
+    public static void sayHi(String name) { //変数のオプションをStringで渡しているので
+      System.out.println("Hi! " + name);    //受け取る側もStringを指定 + 格納する変数名(今回はname)
+    }
+    
+    public static void main(String[] args) {
+      sayHi("Tom");
+      sayHi("Bob");
+    }
+  }
+  ===========================
+  
+ - メソッドに値を返してほしい場合
+
+  ===========================
+  public class MyApp {
+    public static String sayHi(String name) { //voidではなく返してほしいデータ型を記述
+                                              //ちなみにvoidは何も返さないという意味
+      return "Hi! " + name; //返してほしい内容を記述
+    }
+    
+    public static void main(String[] args) {
+      String msg = sayHi("Steve");
+      System.out.println(msg); //Hi! Steve
+    }
+  }
+  ===========================

@@ -1,10 +1,14 @@
 public class MyApp {
+  public static String sayHi(String name) {
+    // System.out.println("Hi! " + name);
+    return "Hi! " + name;
+  }
+
   public static void main(String[] args) {
+    // sayHi("Tom");
+    // sayHi("Bob");
 
-    int[] sales = {700, 400, 500};
-
-    for (int sale : sales) {
-      System.out.println(sale);
-    }
+    String msg = sayHi("Steve");
+    System.out.println(msg);
   }
 }

@@ -1,8 +1,10 @@
-  public class MyApp {
-    public static void main(String[] args) {
+public class MyApp {
+  public static void main(String[] args) {
 
-      int[] sales = {100, 200, 300};
-      System.out.println(sales[2]);
+    int[] sales = {700, 400, 500};
 
+    for (int sale : sales) {
+      System.out.println(sale);
     }
   }
+}

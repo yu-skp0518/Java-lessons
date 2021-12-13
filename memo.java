@@ -383,11 +383,9 @@ java [ファイル名]で実行
 
     }
   }
-  ===========================
 
-  もしくは,以下のように宣言から値の初期化までを省略して記述することもできる
+ - もしくは,以下のように宣言から値の初期化までを省略して記述することもできる
 
-  ===========================
   public class MyApp {
     public static void main(String[] args) {
 
@@ -399,3 +397,52 @@ java [ファイル名]で実行
   ===========================
 
 -------------------------------------------------
+
+ - 配列の要素を操作
+
+以下のようなfor文との連携が多い
+  ===========================
+  public class MyApp {
+    public static void main(String[] args) {
+
+      int[] sales = {700, 400, 500};
+
+      for (int i = 0; i > 3; i++) {
+        System.out.pritnln(i); //iは3より大きくなるまで回数を繰り返す
+      }
+
+    }
+  }
+  ===========================
+
+ - length
+  もしくは以下のような記述で配列の個数をlengthで取得することもできる
+
+  ===========================
+  public class MyApp {
+    public static void main(String[] args) {
+
+      int[] sales = {700, 400, 500};
+
+      for (int i = 0; i < sales.length; i++) { //sales.lengthで配列内の個数を取得
+        System.out.println(i);
+      }
+
+    }
+  }
+  ===========================
+
+  for文を使った別の方法
+
+  ===========================
+  public class MyApp {
+    public static void main(String[] args) {
+
+      int[] sales = {700, 400, 500};
+
+      for (int sale : sales) { //salesの配列の中から一つずつ取り出し、int型のseleに代入しなさい
+        System.out.println(sale); //配列の要素がなくなるまでその処理を実行し続けなさいの意
+      }                           //右のsalesが左のint saleに代入されている
+    }
+  }
+  ===========================

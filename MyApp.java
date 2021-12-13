@@ -9,7 +9,6 @@ class User {
 public class MyApp {
 
   public static void main(String[] args) {
-
     User tom; //classも参照型のため、宣言しただけではメモリ領域にデータは作らない
     tom = new User(); //なので実際に領域にデータを置くには配列同様newする必要がある
                       //newするとそのclassがもつ変数やメソッドを持った領域を確保して

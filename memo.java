@@ -105,7 +105,7 @@ java [ファイル名]で実行
         x++; //++は1を足すなので今回は6
         System.out.println(x); //=6
 
-        x--; //++は1を引くなので上で足された1を再度引いて今回は5が返ってくる
+        x--; //--は1を引くなので上で足された1を再度引いて今回は5が返ってくる
         System.out.println(x); //=5
       }
     }
@@ -134,7 +134,7 @@ java [ファイル名]で実行
 
           String s;
           s = "hello" + "world";
-          System.out.println(x);
+          System.out.println(s);
         }
       }
   ===========================
@@ -408,7 +408,7 @@ java [ファイル名]で実行
       int[] sales = {700, 400, 500};
 
       for (int i = 0; i > 3; i++) {
-        System.out.pritnln(i); //iは3より大きくなるまで回数を繰り返す
+        System.out.pritnln(sales[i]); //iは3より大きくなるまで回数を繰り返す
       }
 
     }
@@ -425,7 +425,7 @@ java [ファイル名]で実行
       int[] sales = {700, 400, 500};
 
       for (int i = 0; i < sales.length; i++) { //sales.lengthで配列内の個数を取得
-        System.out.println(i);
+        System.out.println(sales[i]);
       }
 
     }
@@ -618,18 +618,18 @@ java [ファイル名]で実行
 
   }
   ===========================
-  
+
 -------------------------------------------------
 
  - クラス
  より複雑なデータ型を使いたい場合など
  =>ユーザーに関するデータ型が欲しかった場合、classを使ってデータ型を作れば
    User tom;のように宣言ができるようになる
-   
+
  =>さらに、classには変数とメソッドを持たせることができるので
    「System.out.println(tom.name);」というようにクラスが持つ変数の値を表示したり、
    「tom.sayHi();」としてtomのクラスが持つメソッドを実行したりできる。
- 
+
   ===========================
   class User {
     String name = "Me!"; //Userクラスの変数。とりあえずMeで初期化
@@ -638,11 +638,10 @@ java [ファイル名]で実行
       System.out.println("hi!");
     }
   }
-  
-  public class MyApp {
-  
-    public static void main(String[] args) {
 
+  public class MyApp {
+
+    public static void main(String[] args) {
       User tom; //classも参照型のため、宣言しただけではメモリ領域にデータは作らない
       tom = new User(); //なので実際に領域にデータを置くには配列同様newする必要がある
                         //newするとそのclassがもつ変数やメソッドを持った領域を確保して
@@ -652,6 +651,9 @@ java [ファイル名]で実行
       System.out.println(tom.name);
       tom.sayHi();
     }
-  
+
   }
-  =========================== 
+  ===========================
+
+-------------------------------------------------
+

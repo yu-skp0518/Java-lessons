@@ -1,22 +1,28 @@
 class User {
-  String name = "Me!"; //Userクラスの変数。とりあえずMeで初期化
-                      //クラスに属する変数を"フィールド"と呼ぶ
-  void sayHi() { //Userクラスが持つメソッド
-    System.out.println("hi!");
+  // String name = "Me!"; //もう初期化する必要がなくなる
+  String name;
+
+  User(String name) { //コンストラクタ(クラスと同じ名前で作る)
+    this.name = name; //Userクラスのnameフィールドに設定するため
+  }                   //メソッド内からクラスのフィールドにthisを使ってアクセスさせる
+
+  //引数なしでインスタンス化された場合(メソッドのオーバーロード)
+  User() {
+    this.name = " Me!";
+  }
+
+  void sayHi() {
+    System.out.println("hi!" + this.name);
   }
 }
 
 public class MyApp {
-
   public static void main(String[] args) {
-    User tom; //classも参照型のため、宣言しただけではメモリ領域にデータは作らない
-    tom = new User(); //なので実際に領域にデータを置くには配列同様newする必要がある
-                      //newするとそのclassがもつ変数やメソッドを持った領域を確保して
-                      //tomにはその領域の番地が格納される。
-                      //newして領域を確保することをインスタンスを作るという
-                      //実際に作られたtomはUserクラスのインスタンスと呼ぶ
+    User tom;
+    tom = new User("Tom"); //インスタンス化される時に名前を渡す
+    tom = new User(); //インスタンス化される時に名前を渡さない場合
+
     System.out.println(tom.name);
     tom.sayHi();
   }
-
 }

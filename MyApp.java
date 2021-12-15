@@ -6,13 +6,14 @@ class User {
     this.name = name; //Userクラスのnameフィールドに設定するため
   }                   //メソッド内からクラスのフィールドにthisを使ってアクセスさせる
 
-  //引数なしでインスタンス化された場合(メソッドのオーバーロード)
+  //引数なしでインスタンス化された場合のコンストラクタ(メソッドのオーバーロード)
   User() {
-    this.name = " Me!";
+    // this.name = "Me!";
+    this("Me!");
   }
 
   void sayHi() {
-    System.out.println("hi!" + this.name);
+    System.out.println("hi! " + this.name);
   }
 }
 

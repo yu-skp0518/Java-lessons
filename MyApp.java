@@ -54,15 +54,11 @@ public class MyApp {
 public class MyApp {
   public static void main(String[] args) {
 
-    int[] sales;
-    sales = new int[5];
+    int[] sales = new int[] {100, 200, 300};
 
-    sales[0] = 100;
-    sales[1] = 200;
-    sales[2] = 300;
-    sales[3] = 400;
-    sales[4] = 500;
+    for (int sale : sales) {
+      System.out.println(sale);
+    }
 
-    System.out.println(sales[3]);
   }
 }

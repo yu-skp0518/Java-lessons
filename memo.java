@@ -524,6 +524,27 @@ java [ファイル名]で実行
   }
   ===========================
 
+  public class MyApp {
+    public static void main(String[] args) {
+
+      String s = "hello";
+      String t = s;
+      t = "world";
+
+      /*上記の例から参照型のデータ時は変数の中身を上書きすると、
+      番地を上書きして同じ内容になってしまうと考えがちだが、
+      string型に関しては文字列の変更は基本的にできないので
+      違う文字列が割り当てられると別の領域に新しくデータを確保するため
+      以下はworld worldではなく、hello worldが表示される*/
+
+      System.out.println(s); //hello
+      System.out.println(t); //world
+
+    }
+  }
+
+  ===========================
+
 -------------------------------------------------
 
  - メソッド

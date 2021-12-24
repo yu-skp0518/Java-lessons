@@ -54,11 +54,12 @@ public class MyApp {
 public class MyApp {
   public static void main(String[] args) {
 
-    int[] sales = new int[] {100, 200, 300};
+    String s = "hello";
+    String t = s;
+    t = "world";
 
-    for (int sale : sales) {
-      System.out.println(sale);
-    }
+    System.out.println(s);
+    System.out.println(t);
 
   }
 }

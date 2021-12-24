@@ -54,7 +54,7 @@ public class MyApp {
 public class MyApp {
   public static void main(String[] args) {
 
-    int[] sales = {100, 200, 300};
+    int[] sales = new int[] {100, 200, 300};
 
     for (int sale : sales) {
       System.out.println(sale);

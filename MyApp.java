@@ -50,16 +50,3 @@ public class MyApp {
   }
 }
 */
-
-public class MyApp {
-  public static void main(String[] args) {
-
-    String s = "hello";
-    String t = s;
-    t = "world";
-
-    System.out.println(s);
-    System.out.println(t);
-
-  }
-}

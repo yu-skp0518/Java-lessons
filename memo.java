@@ -688,7 +688,7 @@ java [ファイル名]で実行
     String name;
 
     //コンストラクタ
-    User(String name) { //コンストラクタ(クラスと同じ名前で作る)
+    User(String name) { //コンストラクタ(クラスと同じ名前で作ったメソッド)
       this.name = name; //Userクラスのnameフィールドに設定するため
     }                   //メソッド内からクラスのフィールドにthisを使ってアクセスさせる
 
@@ -699,8 +699,8 @@ java [ファイル名]で実行
     }
 
     void sayHi() {
-      System.out.println("hi! " + this.name);
-    }
+      System.out.println("hi! " + this.name); //メソッド内からクラスのフィールドにアクセスする為
+    }                                         //ここでもthisを
   }
 
   public class MyApp {

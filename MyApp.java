@@ -50,3 +50,15 @@ public class MyApp {
   }
 }
 */
+
+public class MyApp {
+
+  public static String sayHi(String name) {
+    return "Hi! " + name;
+  }
+
+  public static void main(String[] args) {
+    String msg = sayHi("Bob");
+    System.out.println(msg);
+  }
+}

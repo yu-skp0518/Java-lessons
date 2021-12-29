@@ -762,7 +762,7 @@ java [ファイル名]で実行
 
   public class MyApp {
     public static void main(String[] args) {
-      User tom = new User("tom");
+      User tom = new User("tom"); //クラスの宣言とインスタンス化はこのように1行で書くこともできる
       System.out.println(tom.name);
       tom.sayHi();
 

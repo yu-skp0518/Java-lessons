@@ -1,6 +1,6 @@
 package com.dotinstall.myapp; //ファイル階層をパッケージとしてこのように表す
-import com.dotinstall.myapp.model.User;
-import com.dotinstall.myapp.model.AdminUser;
+import com.dotinstall.myapp.model.User; //別のパッケージからクラスを読み込むための記述
+import com.dotinstall.myapp.model.AdminUser; //別のパッケージからクラスを読み込むための記述
 // import com.dotinstall.myapp.model.*; model以下のファイルを全て読み込みたい場合はこのように書くこともできる
 
 public class MyApp {
